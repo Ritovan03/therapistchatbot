@@ -4,6 +4,8 @@ This is a template project for creating Mira flows. Currently implements a text 
 
 ## Quick Start
 
+**Before you start, please [sign up](https://flows.mira.network/) using invitation code `SRICITY` and get your Mira API key.**
+
 1. **Set up environment**
    ```bash
    # Create and activate a Python virtual environment (optional but recommended)
@@ -35,6 +37,7 @@ This is a template project for creating Mira flows. Currently implements a text 
    ```bash
    python hello.py
    ```
+   - Check your deployed flow at https://flows.mira.network/factory
 
 ## Project Structure
 
@@ -42,3 +45,17 @@ This is a template project for creating Mira flows. Currently implements a text 
 - `hello.py`: Python code to deploy and run the flow
 - `.env`: Environment variables (API key)
 - `pyproject.toml`: Project dependencies
+
+
+## Ideas
+
+- AI DJ that generates music based on your dance moves
+- AI that generates recipe based on the ingredients you have at home
+- AI that generates a song based on your favorite lyrics
+- AI that predicts your mood based on your tone of voice
+- AI that generates a workout routine based on your fitness goals
+- AI that generates a poem based on your emotions
+- AI that generates a video game based on your favorite games
+- AI that generates a personalized meditation based on your brain waves
+- AI that generates a fashion outfit based on your style
+- AI that generates a personalized book based on your reading habits
