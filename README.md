@@ -1,20 +1,29 @@
 # Simple Mira Flow
 
-This is a template project for creating Mira flows. Currently implements a text summarizer, but you can easily modify it for your needs.
+This is a template project for creating Mira flows. The `flows` directory contains some sample flows.
 
 ## Quick Start
 
 **Before you start, please [sign up](https://flows.mira.network/) using invitation code `SRICITY` and get your Mira API key.**
 
+> [!NOTE]
+> Use [uv](https://astral.sh/blog/uv) for package management for a better and faster experience (optional)
+
 1. **Set up environment**
    ```bash
    # Create and activate a Python virtual environment (optional but recommended)
-   python -m venv .venv
-   source .venv/bin/activate
+   python -m venv .venv # on linux
+   source .venv/bin/activate # on linux
 
    # Install dependencies
    pip install -e .
    ```
+
+> [!WARNING]
+> If you use Windows, then stop reading this page, and go back to your home.
+> Why did you join Btech CSE ?
+
+
 
 2. **Add your API key**
    ```bash
