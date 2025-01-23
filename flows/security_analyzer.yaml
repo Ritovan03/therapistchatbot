@@ -1,0 +1,52 @@
+version: "0.0.2"
+
+metadata:
+  name: "security-analyzer"
+  description: "Analyzes code for security vulnerabilities and best practices"
+  author: "aahnik"
+  tags: ["security", "code-analysis", "vulnerabilities"]
+  private: false
+
+inputs:
+  code:
+    type: string
+    description: "Code to analyze for security issues"
+    required: true
+    example: "def process_user_input(data): return eval(data)"
+  language:
+    type: string
+    description: "Programming language of the code"
+    required: true
+    example: "python"
+  context:
+    type: string
+    description: "Application context (web, desktop, mobile, etc.)"
+    required: true
+    example: "web"
+
+model:
+  provider: "anthropic"
+  name: "claude-3.5-sonnet"
+
+prompt: |
+  You are a security expert specializing in {language} applications. Analyze this {context} application code for security issues:
+
+  ```{language}
+  {code}
+  ```
+
+  Provide comprehensive security analysis including:
+  1. Identified vulnerabilities
+  2. OWASP top 10 relevance
+  3. Common attack vectors
+  4. Security best practices violations
+  5. Input validation issues
+  6. Authentication/authorization concerns
+  7. Data protection considerations
+  8. Secure coding guidelines
+
+  For each issue found:
+  - Severity level
+  - Potential impact
+  - Remediation steps
+  - Code examples for secure implementation

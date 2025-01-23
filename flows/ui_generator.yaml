@@ -1,0 +1,50 @@
+version: "0.0.2"
+
+metadata:
+  name: "ui-generator"
+  description: "Generates modern UI components from natural language descriptions"
+  author: "aahnik"
+  tags: ["ui", "frontend", "design"]
+  private: false
+
+inputs:
+  description:
+    type: string
+    description: "Description of the UI component needed"
+    required: true
+    example: "A responsive navigation bar with logo, menu items, and a search box"
+  framework:
+    type: string
+    description: "UI framework to use"
+    required: true
+    example: "react"
+  style:
+    type: string
+    description: "Styling approach"
+    required: true
+    example: "tailwind"
+
+model:
+  provider: "anthropic"
+  name: "claude-3.5-sonnet"
+
+prompt: |
+  You are a UI/UX expert. Generate a {framework} component with {style} styling based on this description:
+
+  Component needed: {description}
+
+  Provide:
+  1. Component code with proper structure
+  2. Styling definitions
+  3. Props interface/documentation
+  4. Usage examples
+  5. Accessibility considerations
+  6. Responsive design implementation
+  7. State management (if needed)
+  8. Event handlers
+
+  Ensure the component follows:
+  - Modern design principles
+  - Accessibility standards
+  - Performance best practices
+  - Responsive design patterns

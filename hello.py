@@ -2,33 +2,37 @@ from dotenv import load_dotenv
 from mira_sdk import MiraClient, Flow
 from mira_sdk.exceptions import FlowError
 import os
+import glob
 
 load_dotenv()
 client = MiraClient(config={"API_KEY": os.getenv("MIRA_API_KEY")})
 
-def deploy_flow():
-    try:
-        # Create flow from YAML file
-        flow = Flow(source="flow.yaml")
-        
-        # Deploy to platform
-        client.flow.deploy(flow)
-        
-        # Get flow ID
-        flow_id = "aahnik/text-summarizer"  # author/flow-name format
-        print(f"Flow deployed successfully with ID: {flow_id}")
-        return flow_id
-    except FlowError as e:
-        print(f"Error deploying flow: {str(e)}")
-        return None
-    except Exception as e:
-        print(f"Unexpected error: {str(e)}")
-        return None
+def deploy_flows():
+    # Get all YAML files in the flows directory
+    flow_files = glob.glob("flows/*.yaml")
 
-def test_summarization(flow_id, text):
+    for flow_file in flow_files:
+        try:
+            # Create flow from YAML file
+            flow = Flow(source=flow_file)
+
+            # Deploy to platform
+            client.flow.deploy(flow)
+
+            # Get flow name from filename
+            flow_name = os.path.splitext(os.path.basename(flow_file))[0]
+            flow_id = f"aahnik/{flow_name}"
+            print(f"Flow deployed successfully with ID: {flow_id}")
+
+        except FlowError as e:
+            print(f"Error deploying flow {flow_file}: {str(e)}")
+        except Exception as e:
+            print(f"Unexpected error with {flow_file}: {str(e)}")
+
+def test_flow(flow_id, inputs):
     try:
-        # Execute the flow with input
-        result = client.flow.execute(flow_id, {"text": text})
+        # Execute the flow with inputs
+        result = client.flow.execute(flow_id, inputs)
         return result
     except FlowError as e:
         print(f"Error running flow: {str(e)}")
@@ -36,23 +40,21 @@ def test_summarization(flow_id, text):
 
 def main():
     # Deploy the flow
-    flow_id = deploy_flow()
-    if not flow_id:
-        return
+    print("Deploying flow...")
+    deploy_flows()
 
-    # Test the flow with a sample text
-    sample_text = """
-    Artificial intelligence (AI) is transforming the way we live and work. 
-    It's being used in healthcare to diagnose diseases, in finance to detect fraud, 
-    and in transportation to develop self-driving cars. Despite its benefits, 
-    AI also raises important ethical concerns about privacy, bias, and job displacement.
+    # Test code reviewer
+    code_sample = """
+    def add(a, b):
+        return a + b  # No type hints or error handling
     """
-
-    print("\nTesting flow with sample text...")
-    result = test_summarization(flow_id, sample_text)
-    
+    print("\nTesting code-reviewer flow...")
+    result = test_flow("aahnik/code-reviewer", {
+        "code": code_sample,
+        "language": "python"
+    })
     if result:
-        print("\nSummary:")
+        print("\nCode Review:")
         print(result)
 
 if __name__ == "__main__":

@@ -1,0 +1,41 @@
+version: "0.0.2"
+
+metadata:
+  name: "code-reviewer"
+  description: "An AI flow that reviews code and provides detailed feedback"
+  author: "aahnik"
+  tags: ["code-review", "development", "quality"]
+  private: false
+
+inputs:
+  code:
+    type: string
+    description: "The code to be reviewed"
+    required: true
+    example: "def hello(): print('world')"
+  language:
+    type: string
+    description: "Programming language of the code"
+    required: true
+    example: "python"
+
+model:
+  provider: "anthropic"
+  name: "claude-3.5-sonnet"
+
+prompt: |
+  You are an expert code reviewer with deep knowledge of software engineering best practices.
+  Review the following {language} code and provide detailed feedback:
+
+  ```{language}
+  {code}
+  ```
+
+  Please analyze:
+  1. Code quality and style
+  2. Potential bugs or issues
+  3. Performance considerations
+  4. Security concerns
+  5. Suggested improvements
+
+  Format your response in clear sections with specific recommendations.

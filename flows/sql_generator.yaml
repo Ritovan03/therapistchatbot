@@ -1,0 +1,41 @@
+version: "0.0.2"
+
+metadata:
+  name: "sql-generator"
+  description: "Generates SQL queries from natural language descriptions"
+  author: "aahnik"
+  tags: ["sql", "database", "query-generation"]
+  private: false
+
+inputs:
+  description:
+    type: string
+    description: "Natural language description of the query needed"
+    required: true
+    example: "Find all customers who made purchases over $1000 in the last month"
+  dialect:
+    type: string
+    description: "SQL dialect (mysql, postgresql, etc.)"
+    required: true
+    example: "postgresql"
+
+model:
+  provider: "anthropic"
+  name: "claude-3.5-sonnet"
+
+prompt: |
+  You are an expert SQL developer. Generate a {dialect} SQL query based on this description:
+
+  Description: {description}
+
+  Requirements:
+  1. Use {dialect} specific syntax and features
+  2. Include comments explaining complex parts
+  3. Follow best practices for performance
+  4. Consider indexing implications
+  
+  Provide:
+  1. The SQL query
+  2. Brief explanation of how it works
+  3. Any assumptions made
+  4. Performance considerations

@@ -1,0 +1,56 @@
+version: "0.0.2"
+
+metadata:
+  name: "api-designer"
+  description: "Helps design RESTful APIs with best practices"
+  author: "aahnik"
+  tags: ["api-design", "rest", "microservices"]
+  private: false
+
+inputs:
+  domain:
+    type: string
+    description: "Business domain and requirements"
+    required: true
+    example: "E-commerce product catalog and inventory management"
+  constraints:
+    type: string
+    description: "Technical constraints and requirements"
+    required: true
+    example: "Must support mobile apps, third-party integrations"
+  scale:
+    type: string
+    description: "Expected scale and performance needs"
+    required: true
+    example: "5000 requests per second, 1M products"
+
+model:
+  provider: "anthropic"
+  name: "claude-3.5-sonnet"
+
+prompt: |
+  You are an API design expert. Design a comprehensive REST API for:
+
+  Domain: {domain}
+  Constraints: {constraints}
+  Scale: {scale}
+
+  Provide:
+  1. Resource identification and modeling
+  2. Endpoint definitions
+  3. HTTP methods usage
+  4. Request/response formats
+  5. Authentication/authorization strategy
+  6. Versioning approach
+  7. Error handling standards
+  8. Rate limiting design
+  9. Caching strategy
+  10. API documentation structure
+
+  Consider:
+  - RESTful principles
+  - Performance optimization
+  - Scalability requirements
+  - Security best practices
+  - Developer experience
+  - API evolution strategy

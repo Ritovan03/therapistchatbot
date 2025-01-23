@@ -1,0 +1,43 @@
+version: "0.0.2"
+
+metadata:
+  name: "api-docs-generator"
+  description: "Generates comprehensive API documentation from code and comments"
+  author: "aahnik"
+  tags: ["api", "documentation", "openapi"]
+  private: false
+
+inputs:
+  code:
+    type: string
+    description: "API endpoint code or interface definition"
+    required: true
+    example: "@app.route('/users', methods=['GET']) def get_users(): return jsonify(users)"
+  format:
+    type: string
+    description: "Documentation format (markdown, openapi, swagger)"
+    required: true
+    example: "openapi"
+
+model:
+  provider: "anthropic"
+  name: "claude-3.5-sonnet"
+
+prompt: |
+  You are an API documentation expert. Generate detailed {format} documentation for this API code:
+
+  ```
+  {code}
+  ```
+
+  Include:
+  1. Endpoint description and purpose
+  2. Request/response formats
+  3. Authentication requirements
+  4. Query parameters
+  5. Response codes
+  6. Example requests and responses
+  7. Rate limiting info
+  8. Error handling
+
+  Format the documentation in {format} style with clear structure and examples.
