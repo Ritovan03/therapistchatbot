@@ -1,0 +1,47 @@
+# Version format ex. "0.0.1"
+version: "0.0.1"                            # Flow specification version
+
+# Basic metadata for the agent
+metadata:
+  name: "text-summarizer"                               # Unique identifier
+  description: "A flow that summarizes text input"       # Flow purpose
+  author: "aahnik"                              # Must match your account username
+  tags: ["summarization", "text-processing", "nlp"]                       # Keywords for categorization
+  private: false                                       # Access control setting
+
+# Define the input variables required
+inputs:
+  text:                                              # First input parameter
+    type: string                                       # Currently only String format
+    description: "The text to be summarized"
+    required: true
+    example: "The quick brown fox jumps over the lazy dog. This is a sample text that needs to be summarized."
+
+# LLM configuration
+model:
+  provider: "anthropic"                            # e.g., anthropic, openai, meta, etc.
+  name: "claude-3.5-sonnet"                           # Specific model identifier
+
+# Prompt template configuration
+prompt: |
+  You are a text summarization expert. Your task is to create a concise summary of the given text while preserving the key information.
+
+  Text to summarize:
+  {text}
+
+  Please provide a clear and concise summary of the above text.
+
+# ReadME configuration
+readme: |
+  # Text Summarizer Flow
+
+  This flow takes any text input and generates a concise summary while preserving the key information.
+
+  ## Usage
+  1. Input your text in the `text` parameter
+  2. The flow will process your text using Claude-2
+  3. You'll receive a concise summary as output
+
+  ## Example
+  Input: A long article or paragraph
+  Output: A clear, concise summary highlighting the main points
