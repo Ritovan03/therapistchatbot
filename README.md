@@ -1,70 +1,53 @@
-# Simple Mira Flow
+# Therapist Chatbot
 
-This is a template project for creating Mira flows. The `flows` directory contains some sample flows.
+Welcome to the **Therapist Chatbot** project! This chatbot is designed to provide personalized mental health support and therapy recommendations, using conversational AI to assist individuals with their mental well-being. Whether you're looking for guidance on stress, anxiety, or just need someone to talk to, this bot can offer insights and suggestions to help improve your mental health.
 
-## Quick Start
+---
 
-**Before you start, please [sign up](https://flows.mira.network/) using invitation code `SRICITY` and get your Mira API key.**
+## 🧠 **About the Project**
 
-> [!NOTE]
-> Use [uv](https://astral.sh/blog/uv) for package management for a better and faster experience (optional)
+The Therapist Chatbot leverages cutting-edge natural language processing (NLP) techniques and **Mira Flows** to create a virtual therapist capable of offering personalized counseling. It's built to be a helpful resource for those who may not have immediate access to professional therapy services. 
 
-1. **Set up environment**
-   ```bash
-   # Create and activate a Python virtual environment (optional but recommended)
-   python -m venv .venv # on linux
-   source .venv/bin/activate # on linux
+### Features:
 
-   # Install dependencies
-   pip install -e .
-   ```
+- **Personalized Recommendations**: Based on the user’s mental health profile, the chatbot offers recommendations tailored to their needs.
+- **Cognitive Behavioral Therapy (CBT) Tools**: The chatbot can assist users with exercises that focus on improving thought patterns and reducing anxiety.
+- **Easy Conversations**: Engage in a comfortable and supportive dialogue with the chatbot to receive mental health tips and resources.
+- **24/7 Accessibility**: Available anytime, offering immediate support.
 
-> [!WARNING]
-> If you use Windows, then make sure to refer python docs for virtual environment setup.
+---
 
+## 🛠 **Technologies Used**
 
-2. **Add your API key**
-   ```bash
-   # Create .env file and add your Mira API key
-   echo "MIRA_API_KEY=your_api_key_here" > .env
-   ```
+The Therapist Chatbot is built using **Mira Flows** for the conversational logic and integrating AI-driven capabilities with the following technologies:
 
-3. **Modify the flow**
+- **AI & NLP Models**: The bot utilizes sophisticated machine learning models like GPT (Generative Pre-trained Transformer) for human-like responses.
+- **Backend**: The backend is built using **Python**, allowing seamless integration with Mira Flows and handling complex natural language processing tasks.
+- **Frontend**: A simple, user-friendly interface built with **React** to provide a smooth user experience.
+- **Database**: User data and session information are managed using **PostgreSQL** for reliable data storage.
 
-   - Delete the content inside `flows` folder (they are just examples)
-   - Create a `flows/{some_flow}.yaml`: (see examples in the flows directory)
-   - Change `metadata.name` to your flow name
-   - Change `metadata.author` to your Mira username
-   - Modify `inputs`, `model`, and `prompt` for your use case
+---
 
-4. **Update the code**
-   - Edit `hello.py`:
-     - Change `flow_id` in `deploy_flow()` to match your "author/flow-name"
-     - Modify the sample input in `main()` to match your flow's requirements
+## 🏗 **Where It's Built Upon**
 
-5. **Run the flow**
-   ```bash
-   python hello.py
-   ```
-   - Check your deployed flow at https://flows.mira.network/factory
+This chatbot project is built upon **Mira Flows**, a powerful tool that enables the creation and deployment of AI-driven workflows without the need for complex code. Mira Flows handles the conversational flows and integrates with external AI models to offer personalized therapy sessions.
 
-## Project Structure
+### Key Components:
 
-- `flow.yaml`: Flow configuration (prompt, model, inputs)
-- `hello.py`: Python code to deploy and run the flow
-- `.env`: Environment variables (API key)
-- `pyproject.toml`: Project dependencies
+1. **Mira Flows**: At the core of the chatbot's conversational AI, Mira Flows manages the interaction flow and decision-making, providing dynamic responses based on user input.
+   
+2. **Natural Language Processing (NLP)**: Mira Flows leverages advanced NLP models (such as GPT) to understand and generate human-like responses during the conversation.
+   
+3. **Customizable Therapy Framework**: The chatbot integrates frameworks such as **Cognitive Behavioral Therapy (CBT)**, allowing it to guide users through mental health exercises and provide actionable insights.
 
+4. **Data Handling & Security**: The system ensures that all user data is securely stored, adhering to privacy and confidentiality standards.
 
-## Ideas
+---
 
-- AI DJ that generates music based on your dance moves
-- AI that generates recipe based on the ingredients you have at home
-- AI that generates a song based on your favorite lyrics
-- AI that predicts your mood based on your tone of voice
-- AI that generates a workout routine based on your fitness goals
-- AI that generates a poem based on your emotions
-- AI that generates a video game based on your favorite games
-- AI that generates a personalized meditation based on your brain waves
-- AI that generates a fashion outfit based on your style
-- AI that generates a personalized book based on your reading habits
+## 🚀 **Getting Started**
+
+To get started with this project, you’ll need to clone the repository and follow the setup instructions below.
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/Ritovan03/therapistchatbot.git
