@@ -23,8 +23,7 @@ The Therapist Chatbot is built using **Mira Flows** for the conversational logic
 
 - **AI & NLP Models**: The bot utilizes sophisticated machine learning models like GPT (Generative Pre-trained Transformer) for human-like responses.
 - **Backend**: The backend is built using **Python**, allowing seamless integration with Mira Flows and handling complex natural language processing tasks.
-- **Frontend**: A simple, user-friendly interface built with **React** to provide a smooth user experience.
-- **Database**: User data and session information are managed using **PostgreSQL** for reliable data storage.
+
 
 ---
 
@@ -44,10 +43,4 @@ This chatbot project is built upon **Mira Flows**, a powerful tool that enables 
 
 ---
 
-## 🚀 **Getting Started**
 
-To get started with this project, you’ll need to clone the repository and follow the setup instructions below.
-
-### Step 1: Clone the Repository
-```bash
-git clone https://github.com/Ritovan03/therapistchatbot.git
