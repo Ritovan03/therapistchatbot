@@ -30,10 +30,12 @@ This is a template project for creating Mira flows. The `flows` directory contai
    ```
 
 3. **Modify the flow**
-   - Edit `flow.yaml`:
-     - Change `metadata.name` to your flow name
-     - Change `metadata.author` to your Mira username
-     - Modify `inputs`, `model`, and `prompt` for your use case
+
+   - Delete the content inside `flows` folder (they are just examples)
+   - Create a `flows/{some_flow}.yaml`: (see examples in the flows directory)
+   - Change `metadata.name` to your flow name
+   - Change `metadata.author` to your Mira username
+   - Modify `inputs`, `model`, and `prompt` for your use case
 
 4. **Update the code**
    - Edit `hello.py`:
