@@ -4,6 +4,7 @@ from mira_sdk.exceptions import FlowError
 import os
 import glob
 
+# Load environment variables
 load_dotenv()
 client = MiraClient(config={"API_KEY": os.getenv("MIRA_API_KEY")})
 
@@ -19,9 +20,8 @@ def deploy_flows():
             # Deploy to platform
             client.flow.deploy(flow)
 
-            # Get flow name from filename
-            flow_name = os.path.splitext(os.path.basename(flow_file))[0]
-            flow_id = f"aahnik/{flow_name}"
+            # Get flow name from the flow object
+            flow_id = f"ritovan/{flow.name}"
             print(f"Flow deployed successfully with ID: {flow_id}")
 
         except FlowError as e:
@@ -43,18 +43,15 @@ def main():
     print("Deploying flow...")
     deploy_flows()
 
-    # Test code reviewer
-    code_sample = """
-    def add(a, b):
-        return a + b  # No type hints or error handling
-    """
-    print("\nTesting code-reviewer flow...")
-    result = test_flow("aahnik/code-reviewer", {
-        "code": code_sample,
-        "language": "python"
+    # Test therapist flow
+    print("\nTesting therapist flow...")
+    result = test_flow("ritovan/therapist", {
+        "user_profile": "User is a 25-year-old experiencing mild anxiety and work stress.",
+        "goals": "Reduce anxiety, improve focus, and establish better work-life balance.",
+        "preferences": "Preference for CBT methods and digital solutions; budget-friendly options."
     })
     if result:
-        print("\nCode Review:")
+        print("\nTherapist Flow Result:")
         print(result)
 
 if __name__ == "__main__":

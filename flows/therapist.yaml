@@ -1,0 +1,55 @@
+version: "0.0.1"
+
+metadata:
+  name: "therapist"
+  description: "Provides personalized recommendations for mental health therapy approaches and support"
+  author: "ritovan"
+  tags: ["mental-health", "therapy", "wellness", "AI"]
+  private: false
+
+inputs:
+  user_profile:
+    type: string
+    description: "Brief description of the user's profile and mental health background"
+    required: true
+    example: "User is a 25-year-old experiencing mild anxiety and work stress."
+  goals:
+    type: string
+    description: "User's mental health goals or desired outcomes"
+    required: true
+    example: "Reduce anxiety, improve focus, and establish better work-life balance."
+  preferences:
+    type: string
+    description: "Any specific therapy preferences or constraints"
+    required: true
+    example: "Preference for CBT methods and digital solutions; budget-friendly options."
+
+model:
+  provider: "anthropic"
+  name: "claude-3.5-sonnet"
+
+prompt: |
+  You are a compassionate and experienced mental health therapist. Provide detailed therapy recommendations and strategies for:
+
+  User Profile: {user_profile}
+  Goals: {goals}
+  Preferences: {preferences}
+
+  Include:
+  1. Personalized therapy plan overview
+  2. Suggested therapeutic approaches (e.g., CBT, mindfulness)
+  3. Self-care and daily routine recommendations
+  4. Digital tools or apps for support
+  5. Peer support or community resources
+  6. Crisis management strategies (if applicable)
+  7. Long-term maintenance and growth plan
+  8. Cost-effective options
+  9. Adaptations for specific preferences or constraints
+  10. Metrics to track progress
+
+  Consider:
+  - User's specific mental health conditions
+  - Emotional safety and accessibility
+  - Practicality for the user's lifestyle
+  - Future scalability of the plan
+  - Inclusivity and empathy
