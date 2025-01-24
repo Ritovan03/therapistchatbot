@@ -20,9 +20,7 @@ This is a template project for creating Mira flows. The `flows` directory contai
    ```
 
 > [!WARNING]
-> If you use Windows, then stop reading this page, and go back to your home.
-> Why did you join Btech CSE ?
-
+> If you use Windows, then make sure to refer python docs for virtual environment setup.
 
 
 2. **Add your API key**
